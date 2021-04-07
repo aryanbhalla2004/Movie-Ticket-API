@@ -1,3 +1,174 @@
+<<<<<<< HEAD
 body {
   background-color: black;
 }
+||||||| c94c53e
+=======
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  margin-bottom: 100px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: rgb(253, 183, 59);
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 20px 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.nav-logo h1 {
+  margin-right: 5px;
+}
+
+.nav-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+input {
+  border: 3px solid  rgb(253, 183, 59);
+  border-radius: 15px;
+  height: 30px;
+  width: 250px;
+  padding: 0;
+}
+
+.search-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.search-input h2 {
+  padding: 0;
+  margin-bottom: 5px;
+  font-size: medium;
+  color: rgb(253, 183, 59);
+}
+
+::placeholder {
+  color: lightgray;
+  font-size: large;
+  padding: 10px;
+}
+
+.search-button {
+  background-color: rgb(253, 183, 59);
+  color: white;
+  text-align: center;
+  padding: 7px 60px;
+  border-radius: 15px;
+}
+
+.button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+}
+
+.search-h1 {
+  padding: 0;
+  margin-top: 100px;
+  font-size: x-large;
+}
+
+.movie-header {
+  display: flex;
+  align-items: baseline;
+  margin-top: 150px;
+}
+
+.movie-p {
+  text-decoration: none;
+  color: #4b7bec;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.movie-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie-card img {
+  width: 250px;
+}
+
+.arrow {
+  color: gray;
+  font-size: x-large;
+  border: 3px solid lightgray;
+  padding: 10px 15px 10px 15px;
+  border-radius: 2px;
+}
+
+.movie-card h3 {
+  color: rgb(253, 183, 59);
+  margin: 0;
+  padding: 0;
+}
+
+.movie-card p {
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
+.movie-card i {
+  color: rgb(253, 183, 59);
+}
+
+.movie-card-middle h3 {
+  color: rgb(253, 183, 59);
+  margin: 0;
+  padding: 0;
+}
+
+.movie-card-middle p {
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
+.movie-card-middle i {
+  color: rgb(253, 183, 59);
+}
+
+>>>>>>> 443750a76465a3b4b6257c906d926cc9e3a1d8c4
