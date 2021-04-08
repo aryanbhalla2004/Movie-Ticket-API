@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+body {
+  background-color: black;
+}
+||||||| c94c53e
+=======
 * {
   box-sizing: border-box;
 }
@@ -178,3 +184,10 @@ span:nth-of-type(2) {
 .slider {
   height: 400px;
 }
+<<<<<<< HEAD
+||||||| 443750a
+
+=======
+
+>>>>>>> 443750a76465a3b4b6257c906d926cc9e3a1d8c4
+>>>>>>> 66dec62d90ef2d3742294d98e7374f2cabdbd75f
