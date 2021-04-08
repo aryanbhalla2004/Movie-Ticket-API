@@ -30,6 +30,10 @@ nav li {
   padding: 20px 10px;
 }
 
+nav img {
+  width: 35%;
+}
+
 nav a {
   text-decoration: none;
   color: black;
@@ -105,32 +109,49 @@ input {
 .movie-header {
   display: flex;
   align-items: baseline;
-  margin-top: 150px;
 }
 
 .movie-p {
   text-decoration: none;
-  color: #4b7bec;
+  margin-left: 15px;
+  color: #3867d6;
   font-weight: bold;
-  margin-left: 20px;
+}
+
+span {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 10;
+  color: black;
+  cursor: pointer;
+  z-index: 1;
+  left: .99%;
+  top: 50%;
+}
+
+span:nth-of-type(2) {
+  left: 97.5%;
 }
 
 .movie-flex {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: left;
+  overflow-x: auto;
 }
 
-.movie-card img {
-  width: 250px;
+.movie-flex::-webkit-scrollbar {
+  visibility: hidden;
 }
 
-.arrow {
-  color: gray;
-  font-size: x-large;
-  border: 3px solid lightgray;
-  padding: 10px 15px 10px 15px;
-  border-radius: 2px;
+.movie-card {
+  min-width: 310px;
+  position: relative;
+  left: 0px;
+  text-align: center;
+  transition: 0.5s;
+  height: 400px;
 }
 
 .movie-card h3 {
@@ -149,19 +170,11 @@ input {
   color: rgb(253, 183, 59);
 }
 
-.movie-card-middle h3 {
-  color: rgb(253, 183, 59);
-  margin: 0;
-  padding: 0;
+.movie-card img {
+  width: 250px;
+  height: 300px;
 }
 
-.movie-card-middle p {
-  margin: 0;
-  padding: 0;
-  color: gray;
+.slider {
+  height: 400px;
 }
-
-.movie-card-middle i {
-  color: rgb(253, 183, 59);
-}
-
