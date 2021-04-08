@@ -85,6 +85,10 @@ input {
   padding: 10px;
 }
 
+input {
+  color: lightgray;
+}
+
 .search-button {
   background-color: rgb(253, 183, 59);
   color: white;
