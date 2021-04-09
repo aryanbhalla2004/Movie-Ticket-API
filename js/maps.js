@@ -1,86 +1,162 @@
 const API_KEY = `Dh4moGRBVb2XMce2oeGDE77orRDGfDlo3h27Falv`;
 const baseURL = `https://api-gate2.movieglu.com/`;
 const container = document.querySelector('.titles-wrapper');
-
 const key = "pk.eyJ1IjoiaGlyYWRhYmJhc2kiLCJhIjoiY2ttbWJjNzJqMDh3aDJ3bzQ4eXp6cWJjZCJ9.PB8mTgztoMbR3VCzuKUYfQ";
 const main = document.querySelector("main");
-let map;
+const moviedbAPI_KEY = '00f7b7a847b0f2f4e32b0bc9490b1c45';
+const moviedbBaseURL = 'https://api.themoviedb.org/3/';
 
-let options = {
-  enableHighAccuracy: true,
-  timeout: 7000,
-  maximumAge: 0,
-};
+// let map;
 
-function success(pos) {
-  let crd = pos.coords;
+// let options = {
+//   enableHighAccuracy: true,
+//   timeout: 7000,
+//   maximumAge: 0,
+// };
 
-  mapboxgl.accessToken ="pk.eyJ1IjoiaGlyYWRhYmJhc2kiLCJhIjoiY2ttbWJjNzJqMDh3aDJ3bzQ4eXp6cWJjZCJ9.PB8mTgztoMbR3VCzuKUYfQ";
-  var map = new mapboxgl.Map({
-    container: "map",
-    style: "mapbox://styles/hiradabbasi/ckn7tgwm30qgt17lbsuwymd2c",
-    center: [-96, 37.8],
-    zoom: 3,
-  });
+// function success(pos) {
+//   let crd = pos.coords;
 
-  map.on("load", function () {
-    map.loadImage("https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-      function (error, image) {
-        if (error) throw error;
-        map.addImage("custom-marker", image);
-        map.addSource("points", {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features: [
-              // {
-              //   type: "Feature",
-              //   geometry: {
-              //     type: "Point",
-              //     coordinates: [-77.03238901390978, 38.913188059745586],
-              //   },
-              //   properties: {
-              //     title: "Mapbox DC",
-              //   },
-              // },
-              // {
-              //   type: "Feature",
-              //   geometry: {
-              //     type: "Point",
-              //     coordinates: [-122.414, 37.776],
-              //   },
-              //   properties: {
-              //     title: "Mapbox SF",
-              //   },
-              // },
-            ],
-          },
-        });
+//   mapboxgl.accessToken ="pk.eyJ1IjoiaGlyYWRhYmJhc2kiLCJhIjoiY2ttbWJjNzJqMDh3aDJ3bzQ4eXp6cWJjZCJ9.PB8mTgztoMbR3VCzuKUYfQ";
+//   var map = new mapboxgl.Map({
+//     container: "map",
+//     style: "mapbox://styles/hiradabbasi/ckn7tgwm30qgt17lbsuwymd2c",
+//     center: [-96, 37.8],
+//     zoom: 3,
+//   });
 
-        map.addLayer({
-          id: "points",
-          type: "symbol",
-          source: "points",
-          layout: {
-            "icon-image": "custom-marker",
-            "text-field": ["get", "title"],
-            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 1.25],
-            "text-anchor": "top",
-          },
-        });
-      }
-    );
-  });
+//   map.on("load", function () {
+//     map.loadImage("https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
+//       function (error, image) {
+//         if (error) throw error;
+//         map.addImage("custom-marker", image);
+//         map.addSource("points", {
+//           type: "geojson",
+//           data: {
+//             type: "FeatureCollection",
+//             features: [
+//               // {
+//               //   type: "Feature",
+//               //   geometry: {
+//               //     type: "Point",
+//               //     coordinates: [-77.03238901390978, 38.913188059745586],
+//               //   },
+//               //   properties: {
+//               //     title: "Mapbox DC",
+//               //   },
+//               // },
+//               // {
+//               //   type: "Feature",
+//               //   geometry: {
+//               //     type: "Point",
+//               //     coordinates: [-122.414, 37.776],
+//               //   },
+//               //   properties: {
+//               //     title: "Mapbox SF",
+//               //   },
+//               // },
+//             ],
+//           },
+//         });
+        
+//         map.addLayer({
+//           id: "points",
+//           type: "symbol",
+//           source: "points",
+//           layout: {
+//             "icon-image": "custom-marker",
+//             "text-field": ["get", "title"],
+//             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+//             "text-offset": [0, 1.25],
+//             "text-anchor": "top",
+//           },
+//         });
+//       }
+//     );
+//   });
+  
+//   //new mapboxgl.Marker().setLngLat([crd.longitude, crd.latitude]).addTo(map);
+// }
 
-  //new mapboxgl.Marker().setLngLat([crd.longitude, crd.latitude]).addTo(map);
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// }
+
+// navigator.geolocation.getCurrentPosition(success, error, options);
+
+let user = JSON.parse(localStorage.getItem('user'));
+
+main.insertAdjacentHTML('beforebegin', `
+<div class="container-fluid p-0">
+  <div class="background">
+    <div class="background-content">
+      <span>THRILLER | HORROR | TEEN PROGRAM</span>
+      <h1 class="display-2">${user.title}</h1>
+      <p>${user.synopsis}</p>
+      <span class="details">2021 | DIRECTOR: <i class="text-secondary">${user.director}</i> | RUNTIME <i class="text-secondary">1hr 20mins</i></span>
+      <div class="btn-holder">
+        <button class="btn">WATCH TRAILER <i class="fa fa-play"></i></button>
+        <button class="btn">BUY TICKETS</button>
+      </div>
+    </div>
+  </div>
+</div>`);
+
+document.querySelector('.background').style.background = `${user.landscape}`;
+document.querySelector('.background').style.backgroundRepeat = `no-repeat`;
+document.querySelector('.background').style.backgroundPosition = `center`;
+document.querySelector('.background').style.backgroundSize = `cover`;
+// document.querySelector('.background').style.height = `100vh`;
+
+addTrailers();
+async function addTrailers() {
+  const response = await fetch(`${moviedbBaseURL}movie/${user.id}/videos?api_key=${moviedbAPI_KEY}&type="trailer"&language=en-US`);
+  const JSON = await response.json();
+  main.insertAdjacentHTML('beforeend',`<iframe width="100%" height=750px" src="https://www.youtube.com/embed/${JSON.results[0].key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 }
 
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // async function addAndMove(lng, lat) {
 //   destinationLoc = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
@@ -138,26 +214,3 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 //   map.removeSource('LineString');
 //   addAndMove(loc.dataset.long, loc.dataset.lat);
 // }
-
-$ more trailer.php 
-<?php
-if (!isset($_GET["id"])){
-  echo "Please call with movie ID";
-  return;
-}
-include 'libs/functions.php';
-$id = $_GET["id"];
-if(!is_numeric($id)){
-  echo "Need numeric ID";
-  return;
-}
-// Gdata died, themoviedb is your friend though
-// https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c
-$res = queryApi3("movie", $id, "videos");
-//print_r($res); -- stdClass Object notation
-$youtubeId = $res->results[0]->key; // monitor if first trailer is always OK enough
-echo getTrailerSnippet($youtubeId, '640', '385', 1, 1);                                                                                                                  
-?>
-
-
-
