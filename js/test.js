@@ -49,11 +49,13 @@ async function getAllInformationMovie(movieId) {
       genres.push(genre.name);
     });
     
+    console.log(JSON.movie);
+
     main.insertAdjacentHTML("afterbegin",`
       <div class="movie_card back bright" data-id ="${JSON.movie.id}" id="${JSON.movie.imdb_id}">
         <div class="info_section">
           <div class="movie_header">
-            <img class="locandina" src="${JSON.movie.poster_image.image_files[3].url}" />
+            <img class="locandina" src="${JSON.movie.poster_image.image_files[4].url}" />
             <h1>${JSON.movie.original_title}</h1>
             <h4>${JSON.movie.crew[0].name}</h4>
             <span class="minutes">null min</span>
