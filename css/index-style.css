@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color:rgb(20, 21, 32);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color:rgb(18, 18, 27);
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.content-sizing {
+  display: flex;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1240px;
+}
+
+.header-top { 
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+}
+
+.header-top > input {
+  padding: 12px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  color: #e70914;
+  width: 400px;
+}
+
+.header-top > li {
+  padding: 10px 15px;
+  border-radius: 50%;
+  color: #000;
+  background-color: #e70914;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.slider{
+  display: flex;
+  justify-content: center;
+}
+
+.coming-soon-movie{
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.popular{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popular-movies{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: #fff;
+}
+
+.popular-movies > ul {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.popular-movies > ul:last-child{
+  padding: 20px 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: left;
+}
+
+.popular-movies > ul:last-child > li{
+  text-align: center;
+}
+
+.popular-movies > ul > li{
+  list-style-type: none;
+  margin: 10px 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 280px;
+  
+}
+
+.search {
+  display: table;
+}
+
+.search input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 400px;
+  min-width: 0;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+  line-height: 18px;
+  margin: 5px 0;
+  font-size: 14px;
+  -webkit-appearance: none;
+  font-family: "Mukta Malar";
+  transition: all 0.6s ease;
+  cursor: pointer;
+  color: #fff;
+}
+.search input + div {
+  position: relative;
+  height: 28px;
+  width: 100%;
+  margin: -28px 0 0 0;
+}
+
+.search input + div svg {
+  display: block;
+  position: absolute;
+  height: 28px;
+  width: 300px;
+  right: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-dashoffset: 271.908;
+  stroke-dasharray: 60 212.908;
+  transition: all 0.6s ease;
+}
+.search input:not(:-moz-placeholder-shown) {
+  width: 300px;
+  padding: 0 4px;
+  cursor: text;
+}
+.search input:not(:-ms-input-placeholder) {
+  width: 300px;
+  padding: 0 4px;
+  cursor: text;
+}
+.search input:not(:placeholder-shown), .search input:focus {
+  width: 300px;
+  padding: 0 4px;
+  cursor: text;
+}
+.search input:not(:-moz-placeholder-shown) + div svg {
+  stroke-dasharray: 150 212.908;
+  stroke-dashoffset: 300;
+}
+.search input:not(:-ms-input-placeholder) + div svg {
+  stroke-dasharray: 150 212.908;
+  stroke-dashoffset: 300;
+}
+.search input:not(:placeholder-shown) + div svg, .search input:focus + div svg {
+  stroke-dasharray: 150 212.908;
+  stroke-dashoffset: 300;
+}
+
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.dribbble {
+  position: fixed;
+  display: block;
+  right: 24px;
+  bottom: 24px;
+}
+
+
+.showcase-box{
+  border-radius: 10px;
+  margin:0px 20px 10px 20px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  position: relative;
+}
+
+.cs-hidden{
+  overflow: visible !important;
+  display: flex;
+}
+
+.cs-hidden > li > div{
+  transition: transform .2s;
+  margin: 20px 5px;
+}
+
+.cs-hidden > li > div > img{
+  border-radius: 5px;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.showcase-box > ul {
+  display: none;
+  background-color: rgba(19, 20, 34, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  color: #fff;
+  padding: 20px;
+  align-items: left;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.cs-hidden > li:hover .showcase-box > ul{
+  display: flex !important;
+}
+
+.rating{
+  font-size: 18px;
+}
+
+.header-top > h2{
+  height: 100%;
+  background-color: #e70914;
+  padding: 5px 10px;
+}
+
+.holder-movie{
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.holder-movie > ul{
+  position: absolute;
+  top: 50px;
+  padding: 5px 10px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color:#cc0b15e1;
+}
+
+.holder-movie:hover{
+  transform: scale(0.8);
+}
+
+
+.header-top-selection{
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-top-selection > select{
+  padding: 10px 20px;
+  padding-left: 5px;
+  color: #fff;
+  border: none;
+  text-align: left;
+  border-radius: 5px;
+  background-color: rgb(47, 47, 47);
+  margin-right: 10px;
+}
+
+.header-top-selection > hr{
+  width: 90%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(117, 117, 117), rgba(0, 0, 0, 0));
+}
+
+.header-top-selection > button{
+  padding: 6px 10px;
+  background-color: rgb(47, 47, 47);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.active{
+  background-color: #fff !important;
+  color: #e70914 !important;
+}
+
+.list-style{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  cursor: pointer;
+  border: 2px solid #FFF;
+  height: 420px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.list-style > ul:first-child{
+  position: relative;
+}
+
+.list-style > ul:first-child > ul{
+  position: absolute;
+  top: 50px;
+  padding: 5px 10px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  z-index: 9999;
+  background-color:#cc0b15e1;
+}
+
+.list-style > ul:last-child{
+  display: flex !important;
+  width: 100%;
+  padding: 20px 20px;
+  padding-top: 0px;
+  justify-content: top;
+  text-align: left;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.list-style > ul:last-child > h1, .list-style > ul:last-child > p{
+  margin-bottom: 20px;
+}
+
+.list-style > ul:last-child > button{
+  background-color: #e70914;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+}
+
+.list-style:hover{
+  transform: scale(0.8);
+}
