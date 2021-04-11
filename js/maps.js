@@ -13,6 +13,7 @@ const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const allMonths = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 let testArr = [];
 let testArr2 = [];
+let testArr3 = [];
 
 // let map;
 // let options = {
@@ -124,6 +125,7 @@ document.querySelector('.background').style.height = `100vh`;
 
 getAllShowTimes(user.testID);
 async function getAllShowTimes(id) {
+  //Aperantly it is all over canada and not specificlly Winnipeg
   const response = await fetch(`https://api.internationalshowtimes.com/v4/showtimes?city_name=winnipeg&movie_id=${id}${API_KEY}`);
   const JSON = await response.json();
   JSON.showtimes.sort((a, b) => new Date(a.start_at).getDate() - new Date(b.start_at).getDate());
@@ -131,15 +133,17 @@ async function getAllShowTimes(id) {
   JSON.showtimes.forEach(showTime => {
     if(!testArr.includes(new Date(showTime.start_at).getDate())){
       testArr.push(new Date(showTime.start_at).getDate());
-      testArr2.push(new Date(showTime.start_at).getMonth())
+      testArr2.push(new Date(showTime.start_at).getMonth());
+      testArr3.push(new Date(showTime.start_at).getDay());
     }
   });
 
   for (let i = 0; i < testArr.length; i++) {
     showTimeDate.insertAdjacentHTML('beforeend', `
-      <div class="showTime">
-        <h3 class="showTimeDate">${testArr[i]}</h3>
+      <div class="showTime"> 
+        <h3 class="showTimeWeekDay">${weekDays[testArr3[i]]}</h3>
         <h3 class="showTimeMonth">${allMonths[testArr2[i]]}</h3>
+        <h3 class="showTimeDate">${testArr[i]}</h3>
       </div>
     `)
   }
@@ -147,7 +151,13 @@ async function getAllShowTimes(id) {
   let newItems = [];
   showTimeDate.onclick = e => {
     const date = e.target.closest('.showTime');
+    const allDates = document.querySelectorAll('.showTime');
     
+    allDates.forEach(element => {
+      element.classList.remove("selectedSelected");  
+    });
+
+    date.classList.toggle("selectedSelected");   
     if (date !== null) {
       newItems = [];
       cinemasContainer.textContent = '';
@@ -168,7 +178,7 @@ async function getAllShowTimes(id) {
       JSON.showtimes.forEach(showTime => {
         if(showTime.cinema_id == element && new Date(showTime.start_at).getDate() == date){
           console.log(new Date(showTime.start_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-          document.getElementById(`${showTime.cinema_id}`).insertAdjacentHTML('afterbegin', `
+          document.getElementById(`${showTime.cinema_id}`).insertAdjacentHTML('beforeend', `
             <div class="showTimes">${new Date(showTime.start_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           `);
         } 
@@ -186,7 +196,7 @@ async function testyIRES(cinemaID) {
      <div class="cinema-details">
         <h2>${element.name}</h2>
         <h4>${element.location.address.display_text}</h4>
-        <h5><i class="fas fa-map-marker-alt"></i> 1.9 km</h5> 
+        <h5><i class="fas fa-map-marker-alt"></i> 0 km</h5> 
         <div id="map" class="mapboxgl-map" style='width: 800px; margin:0 auto; '>
           <div id='map' style='width: 100%; height:500px;'></div>
         </div>

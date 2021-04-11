@@ -1,3 +1,7 @@
+main {
+  background: black;
+}
+
 header {
   position: absolute;
   width: 100%;
@@ -112,22 +116,42 @@ nav ul li a {
 
 .showTime {
   flex-direction: column;
-  margin: 10px;
+  margin: 100px 10px;
   display: flex;
   align-items: center;
-  background-color: orange;
+  background: #e70914;
   justify-content: center;
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
+  width: 150px;
+  padding: 10px 0;
+  color: white;
+  border-radius: 10px;
 }
 
-.showTimeDate {
-  font-size: 2rem;
+.showTime:hover {
+  background-color: white;
+  color:red;
+  transition: 500ms;
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.selectedSelected {
+  background-color: white;
+  color:red;  
+  transform: scale(0.95);
+}
+
+.showTimeWeekDay{
+  font-size: 1.4rem;
+  color: black;
 }
 
 .showTimeMonth {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.showTimeDate {
+  font-size: 3rem;
 }
 
 .cinemas {
@@ -139,11 +163,25 @@ nav ul li a {
 
 .cinema-details {
   padding: 30px;
-  border: 1px solid red;
+  border: 1px solid rgba(255, 255, 255, 0.294);
   display: flex;
-  width: 900px;
+  width: 85%;
   flex-direction: column;
-  margin: 20px 0 20px 100px;
+  margin: 20px auto;
+}
+
+.cinema-details h2, 
+.cinema-details h4,
+.cinema-details h5{
+  color:white;
+}
+
+.cinema-details h2 {
+  margin-bottom: 30px;
+}
+
+.cinema-details h4 {
+  font-size: 1.3rem;
 }
 
 .showTimes-list {
@@ -156,16 +194,21 @@ nav ul li a {
 .showTimes {
   display: flex;
   align-items: center;
-  border: 2px solid orange;
+  border: 2px solid white;
+  color: white;
   margin-right: 20px;
   margin-bottom: 10px;
   height: 40px;
   padding: 0 30px;
   border-radius: 10px;
+  font-weight: bolder;
 }
 
 .showTimes:hover {
-  background-color: orange;
+  background-color: white;
+  color: red;
   transition: 300ms;
+  transform: scale(0.95);
+  cursor: pointer;
 }
 
