@@ -1,7 +1,7 @@
 const baseURL = "https://api.internationalshowtimes.com/v4/";
 const API_KEY = "&apikey=5xiCFSSuCw4M8xsqcUviXJrp69gzzgEp";
 const main = document.querySelector("main");
-
+const showTimeDate = document.querySelector(".showTimeDate");
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,

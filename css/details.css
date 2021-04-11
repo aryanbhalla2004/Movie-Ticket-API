@@ -103,3 +103,22 @@ nav ul li a {
 .btn-holder {
   margin: 10px 0;
 }
+
+.showTimeDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.showTime {
+  margin: 10px;
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-color: orange;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}

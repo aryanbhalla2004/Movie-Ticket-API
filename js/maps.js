@@ -6,8 +6,10 @@ const moviedbBaseURL = 'https://api.themoviedb.org/3/';
 
 const container = document.querySelector('.titles-wrapper');
 const main = document.querySelector("main");
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-let daysArray = [];
+const showTimeDate = document.querySelector(".showTimeDate");
+const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+let testArr = [];
+
 
 // let map;
 
@@ -119,20 +121,35 @@ async function addTrailers() {
 }
 
 getAllShowTimes(user.testID);
-
 async function getAllShowTimes(id) {
   const response = await fetch(`https://api.internationalshowtimes.com/v4/showtimes?city_name=winnipeg&movie_id=${id}${API_KEY}`);
   const JSON = await response.json();
+  console.log(JSON.showtimes.sort((a, b) => new Date(a.start_at).getDate() - new Date(b.start_at).getDate()));
+  
   JSON.showtimes.forEach(showTime => {
-    console.log(showTime.cinema_id);
-    if(showTime.cinema_id === '64698'){
-      console.log(showTime);
-    }
-    if (!daysArray.includes(new Date(showTime.start_at.split("T")[0]).getDate())) {
-      daysArray.push(new Date(showTime.start_at.split("T")[0]).getDate());
+    if(!testArr.includes(new Date(showTime.start_at).getDate())){
+      testArr.push(new Date(showTime.start_at).getDate())
     }
   });
-  console.log(daysArray);
+  
+  // testArr.forEach(element => {
+  //   showTimeDate.insertAdjacentHTML('beforeend', `
+  //     <div class="showTime">${element}</div>
+  //   `)
+  // });
+  
+  // showTimeDate.onclick = e => {
+    
+  // }
+  
+  // popularMovies.onclick = e => {
+  //   const movie = e.target.closest('.movie')
+  
+  //   if (movie !== null) {
+  //     getMovieReviews(movie.dataset.movieId);
+  //   }
+  // }
+  //console.log(daysArray);
   
   // daysArray.forEach(element => {
   //   console.log(weekDays[element]);    
