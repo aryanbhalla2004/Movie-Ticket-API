@@ -34,6 +34,7 @@ async function fetchMovieData() {
   await getAndDisplayGenres();
   
   await makeSlideShow();
+  loader();
 }
 
 
@@ -50,7 +51,7 @@ async function getAllCinemaInMoviesId(cinemaId) {
 
 async function getAllMoviesUsingID(){
   await Promise.all(allMovieIds.map(async (movieId) => {
-    const movie = await fetch(`${baseURL}movies/${movieId}?fields=id,title,original_title,release_dates,imdb_id,poster_image,scene_images,synopsis,genres,crew,keywords,preview_id${API_KEY}`);
+    const movie = await fetch(`${baseURL}movies/${movieId}?fields=id,title,imdb_id,poster_image,scene_images,synopsis,genres,crew,ratings${API_KEY}`);
     const movieResponse = await movie.json();
     allMovies.push(movieResponse.movie);
   }));
@@ -86,10 +87,10 @@ async function displayMovie(movie, block, location){
 
   if(block === true){
     location.insertAdjacentHTML('beforeend',  `
-      <li class='holder-movie' data-movieid="${movie.id}">
+      <li class='holder-movie' data-movieid="${movie.id}" data-movieimbd="${movie.imdb_id}">
         <img src="${movie.poster_image.image_files[movie.scene_images[0].image_files.length - 1].url}" width="300">
         <ul>
-          <p class="rating"><i class="fab fa-imdb"></i>&nbsp;9/10</p>
+          <p class="rating"><i class="fab fa-imdb"></i>&nbsp;${movie.ratings.imdb.value}/10</p>
         </ul>
         <h3>${movie.title}</h3>
         </div>
@@ -97,11 +98,11 @@ async function displayMovie(movie, block, location){
     `);
   } else if(block === false){
     location.insertAdjacentHTML('beforeend',  `
-      <li class='list-style' data-movieid="${movie.id}">
+      <li class='list-style' data-movieid="${movie.id}" data-movieimbd="${movie.imdb_id}">
         <ul>
           <img src="${movie.poster_image.image_files[movie.scene_images[0].image_files.length - 1].url}" width="280">
           <ul>
-            <p class="rating"><i class="fab fa-imdb"></i>&nbsp;9/10</p>
+            <p class="rating"><i class="fab fa-imdb"></i>&nbsp;${movie.ratings.imdb.value}/10</p>
           </ul>
         </ul>
         <ul>
@@ -112,19 +113,19 @@ async function displayMovie(movie, block, location){
         </ul>
       </li>
     `);
-  } else if(block === 'top-style'){
-      location.insertAdjacentHTML('beforeend',  `
-        <li>
-          <div class="showcase-box">
-            <img src="${poster}" width="650" height="366.66">
-            <ul>
-              <h1>${movie.title}</h1>
-              <p>${movie.synopsis}</p>
-              <h3>COMING SOON</h3>
-            </ul>
-          </div>
-        </li>
-      `);
+  } else if(block === 'top-style') {
+    location.insertAdjacentHTML('beforeend',  `
+      <li>
+        <div class="showcase-box">
+          <img src="${poster}" width="650" height="366.66">
+          <ul>
+            <h1>${movie.title}</h1>
+            <p>${movie.synopsis}</p>
+            <h3>COMING SOON</h3>
+          </ul>
+        </div>
+      </li>
+    `);
   }
 }
 
@@ -177,6 +178,7 @@ styleSelection.addEventListener('click', e => {
     document.querySelectorAll('.active-btn').forEach(element => {
       element.classList.remove('active-btn');
     });
+
     button.className = 'active-btn block';
     block = true;
     popularMovieHolder.innerHTML = ``;
@@ -213,9 +215,9 @@ async function searchMovies(name){
   const movies = await fetch(`${baseURL}movies?search_query=${name}&search_field=title&lang=en${API_KEY}`);
   const JSON = await movies.json();
   movieResultsHolder.innerHTML = ``;
-  JSON.movies.forEach(element => {
+  JSON.movies.forEach(async (element) => {
     movieResultsHolder.insertAdjacentHTML('beforeend', `
-      <li data-movieid="${element.id}"><a>${element.title}</a></li>
+      <li data-movieid="${element.id}" ><a>${element.title}</a></li>
     `);
   })
 }
@@ -233,7 +235,7 @@ searchButton.addEventListener('click', e => {
       searchBar.style.display = "none";
       searchBar.style.width = "0px";
       searchButton.style.borderTopLeftRadius = "50%";
-    searchButton.style.borderBottomLeftRadius = "50%";
+      searchButton.style.borderBottomLeftRadius = "50%";
     }, 1000);
   } else {
     searchBar.style.display = "block";
@@ -248,14 +250,25 @@ searchButton.addEventListener('click', e => {
 });
 
 
-movieResultsHolder.addEventListener('click', e => {
+movieResultsHolder.addEventListener('click', async (e) => {
   let id = e.target.closest('li').dataset.movieid;
-  localStorage.setItem('movieId', id);
+  const movies = await fetch(`${baseURL}movies/${id}?fields=id,title,original_title,release_dates,imdb_id,poster_image,scene_images,synopsis,genres,crew,keywords,preview_id${API_KEY}`);
+  const movieResponse = await movies.json();
+  let imbd = movieResponse.movie.imdb_id;
+  let movie = {movieId: id, imbdId: imbd}
+  localStorage.setItem('movie', JSON.stringify(movie));
   window.location.href = "details.html";
 })
 
 popularMovieHolder.addEventListener('click', e => {
   let id = e.target.closest('li').dataset.movieid;
-  localStorage.setItem('movieId', id);
-  window.location.href = "details.html";s
-})
+  let imbd = e.target.closest('li').dataset.movieimbd;
+  let movie = {movieId: id, imbdId: imbd}
+  localStorage.setItem('movie', JSON.stringify(movie));
+  window.location.href = "details.html";
+});
+
+function loader(){
+  document.querySelector('.loader').style.display = "none";
+  document.querySelector('.real-content').style.display = "block";
+}

@@ -15,43 +15,74 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <div class="content-sizing header-top">
-      <h2>Movie Ticket</h2>
-      <div class="searchBox">
-        <button class="search-button"><i class="fas fa-search"></i></button>
-        <input type="text" placeholder="" id="search-bar" autocomplete="off">
-        <div class="results">
-          <ul>
-            <p><b>Searching For:&nbsp;<span class="search-name"></span></b></p>
-            <ul class="movie-results" id="list">
-            </ul>
-          </ul>
-      </div>
-    </div>
-  </header>
-
-  <div class="slider">
-    <div class="content-sizing coming-soon-movie">
-      <ul id="autoWidth" class="cs-hidden"></ul>
-    </div>
-  </div>
-
-  <div class="popular">
-    <div class="content-sizing popular-movies">
-      <div class="header-top-selection">
-        <select class="genra-selector">
-          <option default>Genra</option>
-        </select>
-        <hr>
-        <button class="list"><i class="fas fa-align-left"></i></button>
-        <button class="active-btn block"><i class="fas fa-th-large"></i></button>
+  <div class="loader">
+    <div class="book">
+      <div class="inner">
+        <div class="left"></div>
+        <div class="middle"></div>
+        <div class="right"></div>
       </div>
       <ul>
-        <li><h2>Popular Movies</h2></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
       </ul>
-      <ul class="select-movie"></ul>
     </div>
-  </div> 
+  </div>
+  <div class="real-content">
+    <header>
+      <div class="content-sizing header-top">
+        <h2>Movie Ticket</h2>
+        <div class="searchBox">
+          <button class="search-button"><i class="fas fa-search"></i></button>
+          <input type="text" placeholder="" id="search-bar" autocomplete="off">
+          <div class="results">
+            <ul>
+              <p><b>Searching For:&nbsp;<span class="search-name"></span></b></p>
+              <ul class="movie-results" id="list">
+              </ul>
+            </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="slider">
+      <div class="content-sizing coming-soon-movie">
+        <ul id="autoWidth" class="cs-hidden"></ul>
+      </div>
+    </div>
+
+    <div class="popular">
+      <div class="content-sizing popular-movies">
+        <div class="header-top-selection">
+          <select class="genra-selector">
+            <option default>Genra</option>
+          </select>
+          <hr>
+          <button class="list"><i class="fas fa-align-left"></i></button>
+          <button class="active-btn block"><i class="fas fa-th-large"></i></button>
+        </div>
+        <ul>
+          <li><h2>Popular Movies</h2></li>
+        </ul>
+        <ul class="select-movie"></ul>
+      </div>
+    </div> 
+  </div>
 </body>
 </html>
