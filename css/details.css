@@ -33,6 +33,8 @@ nav ul li a {
   width: 100%;
   height: 830px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .background::before {
@@ -45,8 +47,9 @@ nav ul li a {
 
 .background-content {
   position: relative;
-  padding-top: 150px;
-  padding-left: 50px;
+  display: flex;
+  flex-direction: column; 
+  margin-left: 50px;
 }
 
 .background-content h1 {

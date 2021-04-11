@@ -85,6 +85,7 @@ main.onclick = function (e) {
     };
     
     localStorage.setItem('user', JSON.stringify(movieObject));
+    window.location.href='details.html';
     // let user = JSON.parse(localStorage.getItem('user'));
     // getShowTime(user.testID);
   }

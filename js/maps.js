@@ -1,10 +1,13 @@
-const API_KEY = `Dh4moGRBVb2XMce2oeGDE77orRDGfDlo3h27Falv`;
-const baseURL = `https://api-gate2.movieglu.com/`;
-const container = document.querySelector('.titles-wrapper');
 const key = "pk.eyJ1IjoiaGlyYWRhYmJhc2kiLCJhIjoiY2ttbWJjNzJqMDh3aDJ3bzQ4eXp6cWJjZCJ9.PB8mTgztoMbR3VCzuKUYfQ";
-const main = document.querySelector("main");
+const API_KEY = "&apikey=5xiCFSSuCw4M8xsqcUviXJrp69gzzgEp";
 const moviedbAPI_KEY = '00f7b7a847b0f2f4e32b0bc9490b1c45';
+const baseURL = `https://api-gate2.movieglu.com/`;
 const moviedbBaseURL = 'https://api.themoviedb.org/3/';
+
+const container = document.querySelector('.titles-wrapper');
+const main = document.querySelector("main");
+const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let daysArray = [];
 
 // let map;
 
@@ -106,7 +109,7 @@ document.querySelector('.background').style.background = `${user.landscape}`;
 document.querySelector('.background').style.backgroundRepeat = `no-repeat`;
 document.querySelector('.background').style.backgroundPosition = `center`;
 document.querySelector('.background').style.backgroundSize = `cover`;
-// document.querySelector('.background').style.height = `100vh`;
+document.querySelector('.background').style.height = `100vh`;
 
 addTrailers();
 async function addTrailers() {
@@ -115,6 +118,26 @@ async function addTrailers() {
   main.insertAdjacentHTML('beforeend',`<iframe width="100%" height=750px" src="https://www.youtube.com/embed/${JSON.results[0].key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 }
 
+getAllShowTimes(user.testID);
+
+async function getAllShowTimes(id) {
+  const response = await fetch(`https://api.internationalshowtimes.com/v4/showtimes?city_name=winnipeg&movie_id=${id}${API_KEY}`);
+  const JSON = await response.json();
+  JSON.showtimes.forEach(showTime => {
+    console.log(showTime.cinema_id);
+    if(showTime.cinema_id === '64698'){
+      console.log(showTime);
+    }
+    if (!daysArray.includes(new Date(showTime.start_at.split("T")[0]).getDate())) {
+      daysArray.push(new Date(showTime.start_at.split("T")[0]).getDate());
+    }
+  });
+  console.log(daysArray);
+  
+  // daysArray.forEach(element => {
+  //   console.log(weekDays[element]);    
+  // });
+}
 
 
 
