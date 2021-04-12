@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-U A-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/seats.js" defer></script>
+  <link rel="stylesheet" href="css/seats.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <script src="https://unpkg.com/@popperjs/core@2" defer></script>
+</head>
+<body>
+  <header>
+    <h2 class="header-selection"></h2>
+  </header>
+  <section>
+    <ul>
+      <li><span class="available-tag"></span>Available</li>
+      <li><i class="fas fa-times"></i>&nbsp;Unavailable</li>
+      <li><span class="selected-tag"></span>Selected</li>
+      <li><i class="fas fa-wheelchair"></i>&nbsp;Accessible</li>
+    </ul>
+  </section>
+  <div class="container">
+    <div class="theater-front">
+      <h3>SCREEN</h3>
+    </div>
+    <div class="seats">
+      <ul class="rows">
+        <ul class="row-inner sides">
+          <li class="top-number hidden"></li>
+          <li class="inner-data top-number">A</li>
+          <li class="inner-data top-number">B</li>
+          <li class="inner-data top-number">C</li>
+          <li class="inner-data top-number">D</li>
+          <li class="inner-data top-number">E</li>
+          <li class="inner-data top-number">F</li>
+          <li class="inner-data top-number">G</li>
+          <li class="inner-data top-number">H</li>
+          <li class="inner-data top-number">I</li>
+          <li class="inner-data top-number">J</li>
+          <li class="inner-data top-number">K</li>
+          <li class="inner-data top-number">L</li>
+        </ul>
+        <ul class="row-inner sides" data-row='1'>
+          <li class="avaible inner-data top-number">1</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="avaible" id="button1" aria-describedby="tooltip"></li>
+          <li class="avaible" id="button" aria-describedby="tooltip"></li>
+          <div id="tooltip" role="tooltip">1G</div>
+          <li class="avaible" id="button" aria-describedby="tooltip"></li>
+          <div id="tooltip" role="tooltip">My tooltip</div>
+          <li class="occupied" id="button" aria-describedby="tooltip"></li>
+          <div id="tooltip" role="tooltip">My tooltip</div>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='2'>
+          <li class="avaible inner-data top-number">2</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='3'>
+          <li class="avaible inner-data top-number">3</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='4'>
+          <li class="avaible inner-data top-number">4</li>
+          <li class="avaible vip"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='5'>
+          <li class="avaible inner-data top-number">5</li>
+          <li class="avaible vip" data-sNumber="AA2"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='6'>
+          <li class="avaible inner-data top-number">6</li>
+          <li class="avaible vip"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="occupied inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+      </ul>
+      <ul class="rows more">
+        <ul class="row-inner" data-row='7'>
+          <li class="avaible inner-data top-number">7</li>
+          <li class="avaible vip"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="occupied inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='8'>
+          <li class="avaible inner-data top-number">8</li>
+          <li class="avaible vip"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='9'>
+          <li class="avaible inner-data top-number">9</li>
+          <li class="avaible vip"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='10'>
+          <li class="avaible inner-data top-number">10</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='11'>
+          <li class="avaible inner-data top-number">11</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='12'>
+          <li class="avaible inner-data top-number">12</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='13'>
+          <li class="avaible inner-data top-number">13</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner" data-row='14'>
+          <li class="avaible inner-data top-number">14</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi">
+            <i class="fas fa-wheelchair"></i>
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: H2</h2>
+              </ul>
+            </div>
+          </li>
+          <li class="avaible inner-data handi">
+            <i class="fas fa-wheelchair"></i>
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: H3</h2>
+              </ul>
+            </div>
+          </li>
+          <li class="occupied inner-data handi">
+            <i class="fas fa-wheelchair"></i>
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: H4</h2>
+              </ul>
+            </div>
+          </li>
+          <li class="avaible">
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: A6</h2>
+              </ul>
+            </div>
+          </li>
+          <li class="avaible">
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: A7</h2>
+              </ul>
+            </div>
+          </li>
+          <li class="avaible">
+            <div class="hover-effect"> 
+              <ul>
+                <h2>Seat: A8</h2>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </ul>
+      <ul class="rows">
+        <ul class="row-inner sides" data-row='15'>
+          <li class="avaible inner-data top-number">15</li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="occupied inner-data handi"><i class="fas fa-wheelchair"></i></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='16'>
+          <li class="avaible inner-data top-number">16</li>
+          <li class="avaible "></li>
+          <li class="avaible "></li>
+          <li class="occupied "></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='17'>
+          <li class="avaible inner-data top-number">17</li>
+          <li class="avaible "></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='18'>
+          <li class="avaible inner-data top-number">18</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='19'>
+          <li class="avaible inner-data top-number">19</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="occupied"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+        </ul>
+        <ul class="row-inner sides" data-row='20'>
+          <li class="avaible inner-data top-number">20</li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="avaible"></li>
+          <li class="avaible"></li>
+          <li class="occupied"></li>
+          <li class="avaible"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+          <li class="hidden"></li>
+        </ul>
+        <ul class="row-inner sides">
+          <li class="top-number hidden"></li>
+          <li class="inner-data top-number">A</li>
+          <li class="inner-data top-number">B</li>
+          <li class="inner-data top-number">C</li>
+          <li class="inner-data top-number">D</li>
+          <li class="inner-data top-number">E</li>
+          <li class="inner-data top-number">F</li>
+          <li class="inner-data top-number">G</li>
+          <li class="inner-data top-number">H</li>
+          <li class="inner-data top-number">I</li>
+          <li class="inner-data top-number">J</li>
+          <li class="inner-data top-number">K</li>
+          <li class="inner-data top-number">L</li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <div class="seatSelected">
+    <h2><span id="selected-seats">0</span>&nbsp;Seats Selected:</h2>
+    <ul id="seatsHolder">
+    </ul>
+  </div>
+  <div class="seatSelected">
+    <Button id="continue-button-seats">Continue</Button>
+  </div>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script>
+    const button = document.querySelector('#button');
+    const tooltip = document.querySelector('#tooltip');
+
+    const popperInstance = Popper.createPopper(button, tooltip, {
+    modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 8],
+          },
+        },
+      ],
+    });
+
+    function show() {
+  tooltip.setAttribute('data-show', '');
+
+  // We need to tell Popper to update the tooltip position
+  // after we show the tooltip, otherwise it will be incorrect
+  popperInstance.update();
+}
+
+function hide() {
+  tooltip.removeAttribute('data-show');
+}
+
+const showEvents = ['mouseenter', 'focus'];
+const hideEvents = ['mouseleave', 'blur'];
+
+showEvents.forEach(event => {
+  button.addEventListener(event, show);
+});
+
+hideEvents.forEach(event => {
+  button.addEventListener(event, hide);
+});
+  </script>
+</body>
+</html>
