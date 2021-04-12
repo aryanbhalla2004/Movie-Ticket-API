@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;;
+  font-family: 'Poppins', sans-serif;
   background: black;
   color: white;
 }
@@ -40,7 +40,7 @@ main {
 
 .summaryheader-flex {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 .movie-summary {
@@ -57,7 +57,7 @@ main {
 
 .summary-flex {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .summary-img img {
@@ -70,6 +70,7 @@ main {
 
 .summary-info {
   color: white;
+  margin-bottom: 35px;
 }
 
 .p-movie-rate {
@@ -244,5 +245,94 @@ main {
 
 .testings {
   display: none;
+}
+
+.user-input {
+  text-align: center;
+}
+
+.user-input input {
+  width: 50%;
+  background: none;
+  border: 2px solid red;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px 10px;
+}
+
+::placeholder {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.user h2 {
+  text-align: center;
+}
+
+.user p {
+  text-align: center;
+  color: red;
+}
+
+.payment-input input {
+  width: 50%;
+  background: none;
+  border: 2px solid red;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px 10px;
+}
+
+.payment p {
+  text-align: center;
+  color: red;
+  margin-top: 50px;
+}
+
+.payment-input {
+  text-align: center;
+}
+
+.card-input {
+  display: flex;
+  width: 52.5%;
+  margin: 0 auto;
+}
+
+.address-input {
+  display: flex;
+  width: 52.5%;
+  margin: 0 auto;
+}
+
+input[name="Expiration Date (MM/YYYY)"] {
+  width: 100%;
+}
+
+input[name="CVC/CVV"] {
+  width: 30%;
+}
+
+input[name="State/Province"] {
+  width: 100%;
+}
+
+input[name="Postal Code"] {
+  width: 30%;
+}
+
+
+img[alt="payment-icons"] {
+  width: 30%;
+}
+
+.img-wrapper {
+  text-align: center;
+}
+
+img[alt="payment-icons"] {
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 0px 10px;
 }
 

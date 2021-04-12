@@ -4,206 +4,85 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous"/>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="css/index-style.css">
+  <script src="js/index.js" defer></script>
+  <link rel="stylesheet" href="css/lightslider.css">
+  <script src="js/JQuery3.3.1.js"></script>
+  <script src="js/lightslider.js"></script>
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">	
+  <title>Document</title>
 </head>
 <body>
-  <nav>
-    <div class="wrapper">
-      <div class="nav-flex">
-        <div class="nav-logo">
-          <h1>NOT</h1>
-        <img src="images/movie-tickets.png" alt="logo">
+  <div class="loader">
+    <div class="book">
+      <div class="inner">
+        <div class="left"></div>
+        <div class="middle"></div>
+        <div class="right"></div>
+      </div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <div class="real-content">
+    <header>
+      <div class="content-sizing header-top">
+        <h2>Movie Ticket</h2>
+        <div class="searchBox">
+          <button class="search-button"><i class="fas fa-search"></i></button>
+          <input type="text" placeholder="" id="search-bar" autocomplete="off">
+          <div class="results">
+            <ul>
+              <p><b>Searching For:&nbsp;<span class="search-name"></span></b></p>
+              <ul class="movie-results" id="list">
+              </ul>
+            </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="slider">
+      <div class="content-sizing coming-soon-movie">
+        <ul id="autoWidth" class="cs-hidden"></ul>
+      </div>
+    </div>
+
+    <div class="popular">
+      <div class="content-sizing popular-movies">
+        <div class="header-top-selection">
+          <select class="genra-selector">
+            <option default>Genra</option>
+          </select>
+          <hr>
+          <button class="list"><i class="fas fa-align-left"></i></button>
+          <button class="active-btn block"><i class="fas fa-th-large"></i></button>
         </div>
         <ul>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Cinemas</a></li>
-          <li><a href="#"><i class="fas fa-user"></i></a></li>
+          <li><h2>Popular Movies</h2></li>
         </ul>
+        <ul class="select-movie"></ul>
       </div>
-    </div>
-  </nav>
-  <main>
-    <div class="wrapper">
-      <div class="search">
-        <h1 class="h1-style">Search</h1>
-        <div class="search-flex">
-          <div class="search-input">
-            <h2>WHERE (REQUIRED)</h2>
-            <input class="input" type="text" id="where" name="where" placeholder="Search place">
-          </div>
-          <div class="search-input">
-            <h2>WHAT (OPTIONAL)</h2>
-            <input class="input" type="text" id="what" name="what" placeholder="Search for a movie">
-          </div>
-          <div class="search-input">
-            <h2>WHEN</h2>
-            <input class="input" type="date" id="when" name="when" placeholder="when">
-          </div>
-          <div class="search-input">
-            <h2>TIME</h2>
-            <input class="input" type="time" id="where" name="where" placeholder="time">
-          </div>
-          <div class="search-button">
-            <a class="button" href="#">Search</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrapper">
-      <div class="movie-header">
-        <h1 class="h1-style">Now Showing</h1>
-        <a class="movie-p" href="#">See all movies</a>
-      </div>
-  <div class="movie-flex">
-    <span>&#139;</span>
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider">
-      <div class="movie-card">
-        <img src="images/noimage.png" alt="movie">
-        <div class="movie-card-info">
-          <h3>NAME</h3>
-          <p><i class="fas fa-calendar-week"></i>: Oct. 12, 2020</p>
-          <p><i class="fas fa-star"></i>: 75%</p>
-        </div>
-      </div>
-    </div>
-  <span>&#155;</span>
+    </div> 
   </div>
-</div>
-  </main>
 </body>
 </html>
