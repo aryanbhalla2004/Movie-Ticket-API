@@ -116,12 +116,12 @@ document.querySelector('.background').style.backgroundPosition = `center`;
 document.querySelector('.background').style.backgroundSize = `cover`;
 document.querySelector('.background').style.height = `100vh`;
 
-// addTrailers();
-// async function addTrailers() {
-//   const response = await fetch(`${moviedbBaseURL}movie/${user.id}/videos?api_key=${moviedbAPI_KEY}&type="trailer"&language=en-US`);
-//   const JSON = await response.json();
-//   main.insertAdjacentHTML('beforeend',`<iframe width="100%" height=750px" src="https://www.youtube.com/embed/${JSON.results[0].key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
-// }
+addTrailers();
+async function addTrailers() {
+  const response = await fetch(`${moviedbBaseURL}movie/${user.id}/videos?api_key=${moviedbAPI_KEY}&type="trailer"&language=en-US`);
+  const JSON = await response.json();
+  main.insertAdjacentHTML('afterbegin',`<iframe width="100%" height=750px" src="https://www.youtube.com/embed/${JSON.results[0].key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+}
 
 getAllShowTimes(user.testID);
 async function getAllShowTimes(id) {
