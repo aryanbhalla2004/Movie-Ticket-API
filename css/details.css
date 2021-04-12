@@ -1,3 +1,7 @@
+main {
+  background: black;
+}
+
 header {
   position: absolute;
   width: 100%;
@@ -33,6 +37,8 @@ nav ul li a {
   width: 100%;
   height: 830px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .background::before {
@@ -45,8 +51,9 @@ nav ul li a {
 
 .background-content {
   position: relative;
-  padding-top: 150px;
-  padding-left: 50px;
+  display: flex;
+  flex-direction: column; 
+  margin-left: 50px;
 }
 
 .background-content h1 {
@@ -100,3 +107,108 @@ nav ul li a {
 .btn-holder {
   margin: 10px 0;
 }
+
+.showTimeDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  
+}
+
+.showTime {
+  flex-direction: column;
+  margin: 100px 10px;
+  display: flex;
+  align-items: center;
+  background: #e70914;
+  justify-content: center;
+  width: 150px;
+  padding: 10px 0;
+  color: white;
+  border-radius: 10px;
+}
+
+.showTime:hover {
+  background-color: white;
+  color:red;
+  transition: 500ms;
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.selectedSelected {
+  background-color: white;
+  color:red;  
+  transform: scale(0.95);
+}
+
+.showTimeWeekDay{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.showTimeMonth {
+  font-size: 1.1rem;
+}
+
+.showTimeDate {
+  font-size: 3rem;
+}
+
+.cinemas {
+  display: flex;
+  border: 1px solid black;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.cinema-details {
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.294);
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+.cinema-details h2, 
+.cinema-details h4,
+.cinema-details h5{
+  color:white;
+}
+
+.cinema-details h2 {
+  margin-bottom: 30px;
+}
+
+.cinema-details h4 {
+  font-size: 1.3rem;
+}
+
+.showTimes-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.showTimes {
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  color: white;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.showTimes:hover {
+  background-color: white;
+  color: red;
+  transition: 300ms;
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
