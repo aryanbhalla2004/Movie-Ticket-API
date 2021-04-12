@@ -1,0 +1,258 @@
+body{
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.seats {
+  width: 700px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.rows {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-self: start;
+  width: 100%;
+  margin: 10px;
+}
+
+.more {
+  width: 130%;
+}
+
+.row-inner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  align-items: baseline;
+}
+
+.row-inner > li {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 10%;
+}
+
+.row-inner > li > i{ 
+  color: #fff;
+  font-size: 12px;
+}
+
+.row-inner > li:hover {
+}
+
+.selected {
+  background-color: purple !important;
+}
+
+.occupied {
+  background-color: transparent;
+  cursor: not-allowed;  
+}
+
+.occupied > i{
+  color: #000 !important;
+  cursor: not-allowed;
+}
+
+.avaible {
+  background-color: rgb(253, 183, 59);
+}
+
+.hidden {
+  background-color: transparent !important;
+  Cursor:text !important; Text-Decoration: None !important; 
+}
+
+.inner-data {
+  padding: 4px 0 !important;
+  margin: 5px 0 !important;
+}
+
+.handi {
+  background-color: #0370ff;
+}
+
+.row-inner > li > div{
+  border: 2px solid rgb(253, 183, 59);
+  position: absolute;
+  top: 0;
+  display: none;
+  left:100%;
+  transition: 0.3s;
+  z-index: 100;
+  background: #fff;
+  margin-top: -10px; /* approx adjustment for arrow */
+  margin-left: 10px; /* approx adjustment for arrow */
+}
+
+.row-inner > li > div:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  transition: 0.3s;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  z-index: 100;
+  border-color: transparent rgb(253, 183, 59) transparent transparent;
+  top: 10px;
+  left: -20px;
+}
+
+.hover-effect {
+  padding: 10px 20px;
+  width: 300%;
+}
+
+.hover-effect > ul{
+  font-size: 20px;
+  width: 200%;
+}
+
+.hover-effect > ul > h2{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+header {
+  width: 100% !important;
+  height: 20px !important;
+  padding: 15px 10px !important;
+  display: flex !important;
+  justify-content: center;
+  border-bottom: .5px solid rgba(167, 167, 167, 0.3) !important;
+}
+
+header > h2{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+section {
+  width: 100% !important;
+  height: 20px !important;
+  padding: 5px 10px !important;
+  display: flex !important;
+  justify-content: center;
+  border-bottom: .5px solid rgba(167, 167, 167, 0.3) !important;
+}
+
+section > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section > ul > li {
+  padding: 0 10px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+.available-tag, .selected-tag{
+  padding: 0 13px;
+  border-radius: 2px;
+  margin-right: 5px;
+  background-color: rgb(253, 183, 59);
+}
+
+
+.selected-tag{
+  background-color: purple;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 10px;
+  align-items: center;
+  border-bottom: .5px solid rgba(167, 167, 167, 0.3) !important;
+}
+
+.seats{
+  height: 400px;
+}
+
+.seatSelected{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  align-items: center;
+  border-bottom: .5px solid rgba(167, 167, 167, 0.3) !important;
+}
+
+.seatSelected > ul{
+  display: flex;
+  padding-left: 5px;
+}
+
+.seatSelected > ul > li{
+  padding: 0px 2px;
+  font-weight: bold;
+}
+
+.theater-front{
+  width: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 15px solid rgb(74, 74, 74);
+  padding: 10px 0 0 0;
+  color: #000;
+  border-radius: 50%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.top-number{
+  background-color: transparent !important;
+  font-size: 12px;
+  color: rgb(74, 74, 74);
+}
+
+.avaible:hover{
+  background-color: rgba(253, 183, 59, 0.5) !important;
+}
+
+.handi:hover {
+  background-color: #006efe74 !important;
+}
+
+.seatSelected > button {
+  border: none;
+  padding: 10px 30px;
+  margin: 10px 0;
+  transition: .3s;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: rgba(253, 183, 59);
+}
+
+.seatSelected > button:hover{
+  background-color: rgba(253, 183, 59, 0.8);
+}
+
+#tooltip {
+  z-index: 999;
+  display: none;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
