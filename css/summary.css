@@ -336,3 +336,15 @@ img[alt="payment-icons"] {
   padding: 0px 10px;
 }
 
+.user {
+  display: none;
+}
+
+.payment {
+  display: none;
+}
+
+.seat-info {
+  display: none;
+}
+
