@@ -121,7 +121,8 @@ nav ul li a {
   align-items: center;
   background: #e70914;
   justify-content: center;
-  width: 150px;
+  width: 110px;
+  height: 110px;
   padding: 10px 0;
   color: white;
   border-radius: 10px;
@@ -142,7 +143,7 @@ nav ul li a {
 }
 
 .showTimeWeekDay{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: black;
 }
 
@@ -151,7 +152,7 @@ nav ul li a {
 }
 
 .showTimeDate {
-  font-size: 3rem;
+  font-size: 1.8rem;
 }
 
 .cinemas {
@@ -212,3 +213,7 @@ nav ul li a {
   cursor: pointer;
 }
 
+.release-date {
+  color: #6c757d!important;
+  font-size: 1.6rem!important;
+}
