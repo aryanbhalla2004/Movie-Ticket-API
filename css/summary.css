@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: black;
+  background-color: rgb(20, 21, 32);
   color: white;
 }
 
@@ -248,6 +248,10 @@ main {
 
 .user-input {
   text-align: center;
+  color:white;
+}
+input {
+  color:white;
 }
 
 .user-input input {
@@ -333,17 +337,18 @@ input[name="Postal Code"] {
 
 
 img[alt="payment-icons"] {
-  width: 30%;
+  width: 400px;
+  height: 45px;
+  object-fit:cover;
+  overflow:hidden;
 }
 
 .img-wrapper {
   text-align: center;
+  margin: 20px auto;
 }
 
 img[alt="payment-icons"] {
-  border: 2px solid white;
-  border-radius: 15px;
-  padding: 0px 10px;
 }
 
 .user {

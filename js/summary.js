@@ -132,7 +132,7 @@ if(seatsName !== null){
   seatsName.split(",").forEach(element => {
     document.querySelector('.seat-selec-flex').insertAdjacentHTML('afterbegin',
       `<p>${element}</p>`
-    )    
+    )
   });
 } else {
   document.querySelector('.seat-selec').style.display = "none";
@@ -140,3 +140,12 @@ if(seatsName !== null){
 
 
 
+
+document.querySelector('.payment-button').onclick = function() {
+  document.querySelector('.payment').style.display = "none";
+  document.querySelector('.user').style.display = "none";
+  document.querySelector('.cardWrap').style.display = "block";
+  document.querySelector('.cardWrap h2').textContent = info.movieName;
+  document.querySelector('.seat h2').textContent = seatsName.split(",").join(', ');
+  document.querySelector('.time h2').textContent = info.cinemaTime;
+}

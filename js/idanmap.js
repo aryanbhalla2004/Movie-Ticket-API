@@ -1,8 +1,8 @@
 const key = "pk.eyJ1IjoiaGlyYWRhYmJhc2kiLCJhIjoiY2ttbWJjNzJqMDh3aDJ3bzQ4eXp6cWJjZCJ9.PB8mTgztoMbR3VCzuKUYfQ";
 let defaultLng;
 let defaultLat;
-let cinemaLng = -97.2042939;
-let cinemaLat = 49.8234407;
+let cinemaLng = localStorage.getItem('cinemaLongitude');
+let cinemaLat = localStorage.getItem('cinemaLatitude');
 let geojson;
 let cinemaName = "Cinema Name";
 
@@ -77,10 +77,7 @@ function success(pos) {
   });
   
   addAndMove(defaultLng, defaultLat);
-  //new mapboxgl.Marker().setLngLat([crd.longitude, crd.latitude]).addTo(map);
 }
-
-//49.8234407,-97.2042939
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -122,7 +119,7 @@ async function addAndMove(defaultLng, defaultLat) {
         'line-cap': 'round'
       },
       'paint': {
-        'line-color': 'red',
+        'line-color': 'skyblue',
         'line-width': 5
       }
     });

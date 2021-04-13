@@ -1,5 +1,5 @@
 main {
-  background: black;
+  background-color: rgb(20, 21, 32);
 }
 
 header {
@@ -216,4 +216,8 @@ nav ul li a {
 .release-date {
   color: #6c757d!important;
   font-size: 1.6rem!important;
+}
+
+.btn a {
+  color: white;
 }

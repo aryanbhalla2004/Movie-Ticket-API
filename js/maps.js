@@ -51,7 +51,7 @@ async function getMovieDetails(movieId) {
           <span class="details"> <span class="release-date">${JSON.movie.release_dates[Object.keys(JSON.movie.release_dates)[0]][0].date.split('-')[0]}</span> | DIRECTOR: <i class="text-secondary">${JSON.movie.crew[0].name}</i> | RUNTIME <i class="text-secondary">1hr 20mins</i></span>
           <div class="btn-holder">
             <button class="btn watch-trailers">WATCH TRAILER <i class="fa fa-play"></i></button>
-            <button class="btn">BUY TICKETS</button>
+            <button class="btn"><a href="#gohere">BUY TICKETS</a></button>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@ async function getAllShowTimes(id) {
 
   for (let i = 0; i < testArr.length; i++) {
     showTimeDate.insertAdjacentHTML('beforeend', `
-      <div class="showTime"> 
+      <div class="showTime" id="gohere"> 
         <h3 class="showTimeWeekDay">${weekDays[testArr3[i]]}</h3>
         <h3 class="showTimeMonth">${allMonths[testArr2[i]]}</h3>
         <h3 class="showTimeDate">${testArr[i]}</h3>
@@ -145,17 +145,26 @@ async function testyIRES(cinemaID) {
   const response = await fetch(`https://api.internationalshowtimes.com/v4/cinemas?cinema_id=${cinemaID}${API_KEY}`);
   const JSON = await response.json();
   JSON.cinemas.forEach(element => {
-    if(element.id === cinemaID){
-     cinemasContainer.insertAdjacentHTML('beforeend', `
-     <div class="cinema-details">
+    if(element.id === cinemaID){     
+      cinemasContainer.insertAdjacentHTML('beforeend', `
+      <div class="cinema-details">
         <h2 class="cinema-name">${element.name}</h2>
-        <h4>${element.location.address.display_text}</h4>
+        <h4 data-lat="${element.location.lat}" data-lon="${element.location.lon}">${element.location.address.display_text}</h4>
         <div class="showTimes-list" id="${element.id}">
         </div>
       </div>`)
     }
   });
-} 
+
+  document.querySelector('.cinema-details').onclick = (e) => {
+    const item = e.target.closest('h4');
+      
+    localStorage.setItem('cinemaLatitude',item.dataset.lat);
+    localStorage.setItem('cinemaLongitude',item.dataset.lon);
+    
+    window.location.href='maps.html';  
+  }
+}
 
 cinemasContainer.onclick = (e) => {
   const item = e.target.closest('.showTimes');
@@ -176,9 +185,10 @@ cinemasContainer.onclick = (e) => {
       movieScenePoster: document.querySelector('.background').style.backgroundImage,
       moviePoster: moviePoster,
     };
-
+    
     localStorage.setItem('info', JSON.stringify(dataRequired));
     localStorage.removeItem("seatsName");
     window.location.href='summary.html';
   }
 }
+
