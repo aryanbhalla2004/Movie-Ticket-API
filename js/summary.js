@@ -138,9 +138,6 @@ if(seatsName !== null){
   document.querySelector('.seat-selec').style.display = "none";
 }
 
-
-
-
 document.querySelector('.payment-button').onclick = function() {
   document.querySelector('.payment').style.display = "none";
   document.querySelector('.user').style.display = "none";
