@@ -49,8 +49,8 @@ function updateDOM(){
       <li><p>${element}</p></li>
     `);
   });
-
-  checkSeats()
+  localStorage.setItem('seatsName', [selectedSeatsNames]);
+  checkSeats();
 }
 
 function removeElement(array, elem) {
@@ -67,4 +67,8 @@ function checkSeats(){
   } else {
     continueButton.disabled = true;
   }
+}
+
+continueButton.onclick = function(e) {
+  window.location.href = "summary.html";
 }

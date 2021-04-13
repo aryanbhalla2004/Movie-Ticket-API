@@ -66,7 +66,7 @@ body{
 }
 
 .avaible {
-  background-color: rgb(253, 183, 59);
+  background-color: #e70914;
 }
 
 .hidden {
@@ -84,7 +84,7 @@ body{
 }
 
 .row-inner > li > div{
-  border: 2px solid rgb(253, 183, 59);
+  border: 2px solid #e70914;
   position: absolute;
   top: 0;
   display: none;
@@ -105,7 +105,7 @@ body{
   border-width: 10px;
   border-style: solid;
   z-index: 100;
-  border-color: transparent rgb(253, 183, 59) transparent transparent;
+  border-color: transparent #e70914 transparent transparent;
   top: 10px;
   left: -20px;
 }
@@ -166,7 +166,7 @@ section > ul > li {
   padding: 0 13px;
   border-radius: 2px;
   margin-right: 5px;
-  background-color: rgb(253, 183, 59);
+  background-color: #e70914;
 }
 
 
@@ -227,7 +227,7 @@ section > ul > li {
 }
 
 .avaible:hover{
-  background-color: rgba(253, 183, 59, 0.5) !important;
+  background-color: #f3444c73 !important;
 }
 
 .handi:hover {
@@ -241,11 +241,12 @@ section > ul > li {
   transition: .3s;
   cursor: pointer;
   font-size: 18px;
-  background-color: rgba(253, 183, 59);
+  background-color: #e70914;
+  color: #fff;
 }
 
 .seatSelected > button:hover{
-  background-color: rgba(253, 183, 59, 0.8);
+  background-color: #f3444c73;
 }
 
 #tooltip {
