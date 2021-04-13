@@ -10,11 +10,14 @@ const showTimeDate = document.querySelector('.showTimeDate');
 const cinemasContainer = document.querySelector('.cinemas');
 const showTimesListContainer = document.querySelector('.showTimes-list');
 const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const weekDaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const allMonths = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
 let testArr = [];
 let testArr2 = [];
 let testArr3 = [];
 let genres = [];
+let moviePoster;
 
 let user = JSON.parse(localStorage.getItem('movie'));
 
@@ -36,8 +39,8 @@ async function getMovieDetails(movieId) {
   } else {
     description = JSON.movie.synopsis;
   }
-  console.log();
-
+  moviePoster = JSON.movie.poster_image.image_files[5].url;
+  
   main.insertAdjacentHTML('beforebegin', `
     <div class="container-fluid p-0">
       <div class="background">
@@ -120,6 +123,7 @@ async function getAllShowTimes(id) {
         }
       });      
     }
+    
     testFunction(date.querySelector('.showTimeDate').textContent);
   }
   
@@ -153,22 +157,28 @@ async function testyIRES(cinemaID) {
   });
 } 
 
-
 cinemasContainer.onclick = (e) => {
   const item = e.target.closest('.showTimes');
 
+  var d = new Date(`2021-4-${document.querySelector('.selectedSelected .showTimeDate').textContent}`);
+  var n = d.getDay();
+  
   if(item !== null){
     const dataRequired = {
       cinemaName: item.closest('.cinema-details').querySelector("h2").textContent,
       cinemaAddress: item.closest('.cinema-details').querySelector("h4").textContent,
       cinemaTime: item.textContent,
       cinemaDate: document.querySelector('.selectedSelected .showTimeDate').textContent,
+      cinemaMonth: document.querySelector('.selectedSelected .showTimeMonth').textContent,
+      cinemaDayOfWeek: weekDaysFull[n],
       movieName: document.querySelector('.display-2').textContent,
       movieReleaseYear: document.querySelector('.release-date').textContent,
       movieScenePoster: document.querySelector('.background').style.backgroundImage,
+      moviePoster: moviePoster,
     };
 
     localStorage.setItem('info', JSON.stringify(dataRequired));
+    localStorage.removeItem("seatsName");
     window.location.href='summary.html';
   }
 }
