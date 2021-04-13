@@ -93,11 +93,3 @@ main.onclick = function (e) {
   }
 };
 
-
-// async function getShowTime(id) {
-//   const response = await fetch(`${baseURL}showtime.cinema_movie_title?nobody${API_KEY}`
-//   );
-//   const JSON = await response.json();
-//   console.log(JSON.movie);
-// }
-
